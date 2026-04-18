@@ -1,205 +1,77 @@
 :root {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #131722;
-  background: #eef2f8;
-}
-
-* {
-  box-sizing: border-box;
+  --panel-bg: #f4f7fb;
+  --brand-navy: #11365f;
+  --brand-blue: #1d4ed8;
+  --brand-cyan: #0f766e;
+  --brand-slate: #334155;
 }
 
 body {
   margin: 0;
+  background: radial-gradient(circle at 0% 0%, #dff0ff 0, transparent 30%),
+    radial-gradient(circle at 100% 100%, #e2f7eb 0, transparent 34%),
+    var(--panel-bg);
+  color: #0f172a;
 }
 
-button,
-input,
-select {
-  font: inherit;
-}
-
-.layout {
+.app-shell {
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 280px 1fr;
 }
 
-.sidebar {
-  background: linear-gradient(165deg, #0f172a, #1e293b 55%, #223f78);
-  color: #dce8ff;
-  padding: 24px 18px;
+.app-navbar {
+  background: linear-gradient(125deg, var(--brand-navy), #1e4b7a 55%, #2f6fa8 100%);
 }
 
-.sidebar h1 {
-  margin: 0;
-  font-size: 1.5rem;
+.brand-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22d3ee, #4ade80);
+  display: inline-block;
 }
 
-.sidebar p {
-  margin: 8px 0 20px;
-  color: #9fb7e8;
-}
-
-.sidebar nav {
-  display: grid;
-  gap: 8px;
-}
-
-.navBtn {
-  border: 1px solid #324c83;
-  background: rgba(255, 255, 255, 0.06);
-  color: #dbeafe;
-  border-radius: 10px;
-  padding: 10px 12px;
-  text-align: left;
-  cursor: pointer;
-}
-
-.navBtn.active {
-  background: #1d4ed8;
-  border-color: #1d4ed8;
-}
-
-.content {
-  padding: 24px;
-  display: grid;
-  gap: 16px;
-}
-
-.topBar {
-  display: flex;
-  justify-content: space-between;
-  background: #ffffff;
-  border: 1px solid #d9e2f1;
-  border-radius: 12px;
-  padding: 14px 16px;
-}
-
-.panel {
-  background: #ffffff;
-  border: 1px solid #d9e2f1;
-  border-radius: 14px;
-  padding: 20px;
-}
-
-.panel h2 {
-  margin: 0 0 14px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
-}
-
-.card {
-  background: #f4f8ff;
-  border: 1px solid #d7e5ff;
-  border-radius: 12px;
-  padding: 14px;
-  display: grid;
-  gap: 4px;
-}
-
-.card span {
-  color: #52627a;
-  font-size: 0.9rem;
-}
-
-.card strong {
-  color: #10213f;
-}
-
-.form {
-  display: grid;
-  gap: 10px;
-  max-width: 520px;
-}
-
-.form.compact {
-  margin-top: 14px;
-}
-
-.form input,
-.form select {
-  border: 1px solid #c6d2e6;
-  border-radius: 10px;
-  padding: 10px 12px;
-}
-
-.form button,
-.secondary,
-.actions button {
-  border: none;
-  border-radius: 10px;
-  background: #1d4ed8;
+.list-group-item.nav-active {
+  background: linear-gradient(120deg, var(--brand-blue), #265dc2);
   color: #ffffff;
-  padding: 10px 12px;
-  cursor: pointer;
 }
 
-.secondary {
-  margin-top: 14px;
-  background: #344155;
+.list-group-item.nav-active i {
+  color: #ffffff;
 }
 
-.summary {
-  margin: 12px 0 0;
-  font-weight: 600;
-  color: #20408f;
+.hero-panel {
+  background: linear-gradient(165deg, #edf4ff, #f5fbff);
 }
 
-.deliveryList {
-  margin-top: 14px;
-  display: grid;
+.metric-card {
+  border: 1px solid #dde7f5;
+  border-radius: 14px;
+  background: #f9fbff;
+  padding: 12px;
+  display: flex;
+  align-items: center;
   gap: 10px;
 }
 
-.deliveryItem {
-  border: 1px solid #d6dfef;
-  border-radius: 10px;
-  padding: 12px;
-  display: grid;
-  gap: 8px;
+.metric-card i {
+  font-size: 1.2rem;
 }
 
-.deliveryItem span {
-  color: #4e5f79;
-  font-size: 0.95rem;
+.metric-label {
+  font-size: 0.82rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 600;
 }
 
-.actions {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+.metric-value {
+  font-size: 1rem;
+  color: #0f172a;
+  font-weight: 700;
 }
 
-.actions button:nth-child(2) {
-  background: #0f766e;
-}
-
-.actions button:nth-child(3) {
-  background: #15803d;
-}
-
-.message {
-  background: #0f172a;
-  color: #dbeafe;
-  border-radius: 12px;
-  padding: 12px 14px;
-}
-
-@media (max-width: 920px) {
-  .layout {
-    grid-template-columns: 1fr;
-  }
-
-  .sidebar {
-    border-bottom: 1px solid #314976;
-  }
-
-  .topBar {
-    flex-direction: column;
-    gap: 6px;
-  }
+.table td,
+.table th {
+  white-space: nowrap;
 }
