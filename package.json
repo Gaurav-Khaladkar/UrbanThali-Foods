@@ -1,0 +1,22 @@
+{
+  "name": "urbanthali-foods",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Subscription-first tiffin platform monorepo",
+  "workspaces": [
+    "apps/*",
+    "services/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:api": "npm --workspace services/api run dev",
+    "dev:admin": "npm --workspace apps/admin run dev",
+    "dev:mobile": "npm --workspace apps/mobile run start",
+    "build": "npm run -ws build",
+    "lint": "npm run -ws lint",
+    "typecheck": "npm run -ws typecheck"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
