@@ -4,7 +4,7 @@ Subscription-first tiffin platform for Android, iOS, Admin, Kitchen, and Deliver
 
 ## Product Vision
 
-UrbanThali Foods helps customers subscribe to reliable daily meals while giving operations teams full control over planning, production, dispatch, and reconciliation.
+UrbanThali Foods includes a professional service-operations foundation with working login/admin registration, payment, mapping/navigation, delivery workflow, and API-first integration.
 
 ## Monorepo Structure
 
@@ -19,6 +19,7 @@ packages/
 docs/
   architecture.md
   roadmap.md
+  stack-coverage.md
 ```
 
 ## Tech Stack
@@ -26,7 +27,7 @@ docs/
 - Mobile: React Native (Expo) + TypeScript
 - Admin: React + Vite + TypeScript
 - Backend: Node.js + Express + TypeScript
-- Data: PostgreSQL + Redis (planned integration)
+- Data: PostgreSQL + Redis (configuration included)
 - Payments: Razorpay (initial), Stripe (optional expansion)
 - Maps and Tracking: Google Maps Platform
 
@@ -41,14 +42,14 @@ docs/
    - Admin: `npm run dev:admin`
    - Mobile: `npm run dev:mobile`
 
-## Initial Delivery Scope
+## Current Working Modules
 
-- Subscription plans (5-day and 7-day weekly cycles)
-- Pause/Skip calendar
-- Meal preference profile (Veg, Jain, Keto, custom notes)
-- Delivery ticket generation
-- OTP/QR proof-of-delivery workflow
-- Admin analytics baseline
+- Admin registration and login APIs
+- Payment intent and confirmation APIs (sandbox)
+- Mapping route API with ETA and point generation
+- Delivery creation, status updates, and tracking APIs
+- OTP notification and verification APIs
+- Professional admin web pages and mobile navigation screens
 
 ## Branching
 
