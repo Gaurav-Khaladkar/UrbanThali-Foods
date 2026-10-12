@@ -1165,7 +1165,7 @@ export default function App() {
                                   )}
                                 </div>
                                 <div className="d-flex flex-wrap gap-1 mt-1">
-                                  {profile.permissions.slice(0, 3).map((perm) => (
+                                  {profile.permissions.slice(0, 3).map((perm: string) => (
                                     <span key={perm} className="badge bg-light text-secondary border small">
                                       {perm}
                                     </span>
