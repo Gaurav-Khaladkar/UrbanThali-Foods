@@ -12,6 +12,7 @@ import { deliveryRouter } from "./modules/deliveries/delivery.route.js";
 import { navigationRouter } from "./modules/navigation/navigation.route.js";
 import { notificationRouter } from "./modules/notifications/notification.route.js";
 import { paymentRouter } from "./modules/payments/payment.route.js";
+import { profileRouter } from "./modules/profiles/profile.route.js";
 import { subscriptionRouter } from "./modules/subscriptions/subscription.route.js";
 import { healthRouter } from "./routes/health.route.js";
 
@@ -33,7 +34,8 @@ app.get("/", (_req, res) => {
       cloud: getAwsConfig(),
       payments: ["Razorpay (primary)", "Stripe (optional)"],
       maps: "Google Maps compatible route APIs",
-      auth: "Admin registration + login + OTP verification endpoints"
+      auth: "Admin registration + login + OTP verification endpoints",
+      profiles: "Multi-role customer, kitchen, rider, and admin profile management"
     }
   });
 });
@@ -45,6 +47,7 @@ app.use("/navigation", navigationRouter);
 app.use("/deliveries", deliveryRouter);
 app.use("/notifications", notificationRouter);
 app.use("/subscriptions", subscriptionRouter);
+app.use("/profiles", profileRouter);
 
 app.listen(env.API_PORT, () => {
   // Keep startup log simple for containerized environments.

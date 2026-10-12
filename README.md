@@ -49,6 +49,7 @@ docs/
 - Mapping route API with ETA and point generation
 - Delivery creation, status updates, and tracking APIs
 - OTP notification and verification APIs
+- Multi-role profile management (Customer, Kitchen Partner, Delivery Rider, Admin) across API, Admin web portal, and Mobile app
 - Professional admin web pages and mobile navigation screens
 
 ## Branching

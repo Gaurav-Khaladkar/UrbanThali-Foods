@@ -75,3 +75,80 @@ body {
 .table th {
   white-space: nowrap;
 }
+
+.profile-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e2e8f0;
+}
+
+.profile-avatar-lg {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #3b82f6;
+}
+
+.badge-role-customer {
+  background: #e0f2fe;
+  color: #0369a1;
+  font-weight: 600;
+}
+
+.badge-role-kitchen {
+  background: #fef3c7;
+  color: #b45309;
+  font-weight: 600;
+}
+
+.badge-role-rider {
+  background: #dcfce7;
+  color: #15803d;
+  font-weight: 600;
+}
+
+.badge-role-admin {
+  background: #f3e8ff;
+  color: #7e22ce;
+  font-weight: 600;
+}
+
+.profile-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.profile-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+}
+
+.modal-backdrop-custom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  padding: 20px;
+}
+
+.modal-content-custom {
+  background: #ffffff;
+  border-radius: 20px;
+  max-width: 650px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
