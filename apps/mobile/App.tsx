@@ -271,6 +271,12 @@ export default function App() {
     }
   }
 
+  function onLogout(): void {
+    setToken("");
+    setMessage("Logged out successfully");
+    setScreen("login");
+  }
+
   async function onCreatePayment(): Promise<void> {
     try {
       const result = await request<{ data: { id: string } }>("/payments/create-intent", {
@@ -359,10 +365,19 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <StatusBar style="light" />
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>UrbanThali Mobile</Text>
-        <Text style={styles.headerSub}>
-          Customer & Operations App {isAuthenticated ? "| Authenticated" : "| Guest Mode"}
-        </Text>
+        <View style={styles.headerRow}>
+          <View style={{ flex: 1 }}>
+            <Text style={styles.headerTitle}>UrbanThali Mobile</Text>
+            <Text style={styles.headerSub}>
+              Customer & Operations App {isAuthenticated ? "| Authenticated" : "| Guest Mode"}
+            </Text>
+          </View>
+          {isAuthenticated && (
+            <Pressable style={styles.logoutBtn} onPress={onLogout}>
+              <Text style={styles.logoutBtnText}>Logout</Text>
+            </Pressable>
+          )}
+        </View>
       </View>
 
       <ScrollView contentContainerStyle={styles.scroll}>
@@ -718,6 +733,24 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 14,
     paddingBottom: 10
+  },
+  headerRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between"
+  },
+  logoutBtn: {
+    backgroundColor: "rgba(239, 68, 68, 0.2)",
+    borderWidth: 1,
+    borderColor: "#ef4444",
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 8
+  },
+  logoutBtnText: {
+    color: "#fca5a5",
+    fontSize: 12,
+    fontWeight: "600"
   },
   headerTitle: {
     color: "#f8fbff",

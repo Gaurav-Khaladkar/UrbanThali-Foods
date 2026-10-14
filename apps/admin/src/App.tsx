@@ -162,6 +162,12 @@ export default function App() {
     });
   }
 
+  function handleLogout(): void {
+    setToken("");
+    showNotice("info", "You have been logged out successfully.");
+    navigate("login");
+  }
+
   async function handleCreatePayment(formData: FormData): Promise<void> {
     await withLoader(async () => {
       const payload = {
@@ -438,7 +444,28 @@ export default function App() {
             <span className="brand-dot" />
             <span>UrbanThali Pro Panel</span>
           </a>
-          <span className="navbar-text text-light small">API: {apiBase}</span>
+          <div className="d-flex align-items-center gap-3">
+            <span className="navbar-text text-light small d-none d-sm-inline">API: {apiBase}</span>
+            {token ? (
+              <button
+                type="button"
+                className="btn btn-outline-danger btn-sm d-flex align-items-center gap-1"
+                onClick={handleLogout}
+              >
+                <i className="bi bi-box-arrow-right" />
+                <span>Logout</span>
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="btn btn-outline-light btn-sm d-flex align-items-center gap-1"
+                onClick={() => navigate("login")}
+              >
+                <i className="bi bi-box-arrow-in-right" />
+                <span>Login</span>
+              </button>
+            )}
+          </div>
         </div>
       </nav>
 
@@ -462,6 +489,16 @@ export default function App() {
                       <span>{item.label}</span>
                     </button>
                   ))}
+                  {token && (
+                    <button
+                      type="button"
+                      className="list-group-item list-group-item-action rounded-3 border-0 d-flex align-items-center gap-2 text-danger mt-2"
+                      onClick={handleLogout}
+                    >
+                      <i className="bi bi-box-arrow-right" />
+                      <span>Logout</span>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
@@ -469,11 +506,23 @@ export default function App() {
 
           <section className="col-xl-9 col-lg-8">
             <div className={`alert alert-${notice.tone} border-0 shadow-sm`} role="alert">
-              <div className="d-flex justify-content-between align-items-center">
+              <div className="d-flex justify-content-between align-items-center flex-wrap gap-2">
                 <span>{notice.text}</span>
-                <span className="badge text-bg-dark">
-                  Session: {token ? `${token.slice(0, 8)}...` : "not logged in"}
-                </span>
+                <div className="d-flex align-items-center gap-2">
+                  <span className="badge text-bg-dark">
+                    Session: {token ? `${token.slice(0, 8)}...` : "not logged in"}
+                  </span>
+                  {token && (
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-outline-danger py-0 px-2"
+                      style={{ fontSize: "0.75rem" }}
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
 
