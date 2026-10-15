@@ -5,22 +5,43 @@
 </p>
 
 <p align="center">
+  <a href="http://localhost:4000/health/liveness"><img src="https://img.shields.io/badge/LIVE%20SYSTEM-OPERATIONAL-00F59B?style=for-the-badge&logo=statuspage&logoColor=black" alt="Live Status" /></a>
+  <a href="#-tech-stack"><img src="https://img.shields.io/badge/TypeScript-5.6-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" /></a>
+  <a href="#-client-applications"><img src="https://img.shields.io/badge/React%20Native-Expo%2051-000000?style=for-the-badge&logo=expo&logoColor=white" alt="Expo" /></a>
+  <a href="#-client-applications"><img src="https://img.shields.io/badge/React-Vite%20Admin-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React Vite" /></a>
+  <a href="#-backend-services"><img src="https://img.shields.io/badge/Node.js-Express%20v4-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" /></a>
+  <a href="#-data--infrastructure"><img src="https://img.shields.io/badge/PostgreSQL-Ready-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" /></a>
+  <a href="#-data--infrastructure"><img src="https://img.shields.io/badge/Redis-Cache%20%26%20Queues-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis" /></a>
+  <a href="#-enterprise-integrations"><img src="https://img.shields.io/badge/Payments-Razorpay%20%2B%20Stripe-528FF0?style=for-the-badge&logo=stripe&logoColor=white" alt="Payments" /></a>
+  <a href="#-enterprise-integrations"><img src="https://img.shields.io/badge/Google%20Maps-Navigation%20%26%20ETA-4285F4?style=for-the-badge&logo=googlemaps&logoColor=white" alt="Google Maps" /></a>
+  <a href="#-license--enterprise-support"><img src="https://img.shields.io/badge/License-Proprietary%202026-F59E0B?style=for-the-badge&logo=securityscorecard&logoColor=black" alt="License" /></a>
+</p>
+
+<p align="center">
   <strong>Enterprise Subscription-First Tiffin & Cloud Kitchen Operations Platform</strong>
   <br />
   <em>Scalable Monorepo powering Cross-Platform Mobile Apps, Operations Admin Web Portals, Kitchen Batching, Fleet Dispatch, and High-Performance APIs.</em>
 </p>
 
+---
+
+## 🟢 Live System Operations & Telemetry
+
 <p align="center">
-  <a href="#-system-architecture"><img src="https://img.shields.io/badge/Architecture-Modular%20Microservices-blue.svg?style=for-the-badge&logo=blueprint" alt="Architecture" /></a>
-  <a href="#-tech-stack"><img src="https://img.shields.io/badge/TypeScript-5.6-3178C6.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" /></a>
-  <a href="#-client-applications"><img src="https://img.shields.io/badge/React%20Native-Expo%2051-000000.svg?style=for-the-badge&logo=expo&logoColor=white" alt="Expo" /></a>
-  <a href="#-client-applications"><img src="https://img.shields.io/badge/React-Vite%20Admin-61DAFB.svg?style=for-the-badge&logo=react&logoColor=black" alt="React Vite" /></a>
-  <a href="#-backend-services"><img src="https://img.shields.io/badge/Node.js-Express%20v4-339933.svg?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" /></a>
-  <a href="#-data--infrastructure"><img src="https://img.shields.io/badge/PostgreSQL-Ready-4169E1.svg?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" /></a>
-  <a href="#-data--infrastructure"><img src="https://img.shields.io/badge/Redis-Caching%20%26%20Queues-DC382D.svg?style=for-the-badge&logo=redis&logoColor=white" alt="Redis" /></a>
-  <a href="#-enterprise-integrations"><img src="https://img.shields.io/badge/Razorpay%20%26%20Stripe-Payments-528FF0.svg?style=for-the-badge&logo=stripe&logoColor=white" alt="Payments" /></a>
-  <a href="#-enterprise-integrations"><img src="https://img.shields.io/badge/Google%20Maps-Routes%20%26%20ETA-4285F4.svg?style=for-the-badge&logo=googlemaps&logoColor=white" alt="Google Maps" /></a>
+  <img src="docs/assets/live-telemetry.svg" alt="Live Telemetry and Operations Stream" width="100%" />
 </p>
+
+> [!NOTE]
+> **Live Telemetry Stream:** All platform microservices include active health, readiness, and liveness endpoints designed for container orchestration (Kubernetes, AWS ECS, Docker Swarm) and synthetic monitoring alerts.
+
+| Service Component | Port / Endpoint | Protocol | Live Health Check |
+| :--- | :--- | :--- | :--- |
+| **🚀 Central Express API** | `http://localhost:4000/health/liveness` | `HTTP/REST` | `GET /health/liveness` $\rightarrow$ `{"status":"ok"}` |
+| **🐘 PostgreSQL Database Pool** | `localhost:5432/urbanthali` | `TCP / Postgres` | Wired in [`postgres.ts`](services/api/src/infrastructure/postgres.ts) |
+| **⚡ Redis Cache & PubSub** | `localhost:6379` | `RESP / Redis` | Wired in [`redis.ts`](services/api/src/infrastructure/redis.ts) |
+| **📬 BullMQ Batch Engine** | In-Memory / Redis Queue | `Async Worker` | Wired in [`queues.ts`](services/api/src/infrastructure/queues.ts) |
+| **💻 Operations Control Center** | `http://localhost:5173` | `Vite / HMR` | Dashboard active with real-time telemetry |
+| **📱 Cross-Platform Mobile** | `http://localhost:8081` | `Expo Metro` | Live bundler for iOS, Android & Web |
 
 ---
 
@@ -29,28 +50,29 @@
 **UrbanThali Foods** is an end-to-end cloud kitchen and scheduled meal delivery platform designed for high-density urban catering, corporate lunch subscriptions, and residential tiffin networks. Unlike standard ad-hoc food delivery apps, UrbanThali operates on a **predictable subscription model** that eliminates food waste, optimizes kitchen prep manifests hours in advance, clusters multi-order rider delivery routes, and guarantees on-time doorstep delivery.
 
 ### 💼 Business Value for Enterprises
-* **Zero Food Waste Forecasting:** Automated daily delivery tickets generated from active recurring subscriptions ensure cloud kitchens prep exact meal counts.
-* **Multi-Role Orchestration:** Dedicated operational workflows for **Customers**, **Kitchen Hub Partners**, **Fleet Delivery Riders**, and **Central Operations Admins**.
-* **Smart Route Clustering & Live Tracking:** Automated route waypoint generation, live ETA computation, and simulated real-time GPS telemetry.
-* **Enterprise Security & Compliance:** FSSAI cloud kitchen license tracking, OTP-secured delivery handovers, and role-based access control (RBAC).
+* 🥗 **Zero Food Waste Forecasting:** Automated daily delivery tickets generated from active recurring subscriptions ensure cloud kitchens prep exact meal counts.
+* 👥 **Multi-Role Orchestration:** Dedicated operational workflows for **Customers**, **Kitchen Hub Partners**, **Fleet Delivery Riders**, and **Central Operations Admins**.
+* 🗺️ **Smart Route Clustering & Live Tracking:** Automated route waypoint generation, live ETA computation, and simulated real-time GPS telemetry.
+* 🛡️ **Enterprise Security & Compliance:** FSSAI cloud kitchen license tracking, OTP-secured delivery handovers, and role-based access control (RBAC).
 
 ---
 
 ## 📑 Table of Contents
 
 - [UrbanThali Foods](#urbanthali-foods)
+  - [🟢 Live System Operations \& Telemetry](#-live-system-operations--telemetry)
   - [📌 Executive Summary \& Platform Overview](#-executive-summary--platform-overview)
     - [💼 Business Value for Enterprises](#-business-value-for-enterprises)
   - [📑 Table of Contents](#-table-of-contents)
+  - [🔄 5-Stage Operational Lifecycle Pipeline](#-5-stage-operational-lifecycle-pipeline)
+    - [Daily Operations Flow](#daily-operations-flow)
+    - [Delivery State Machine](#delivery-state-machine)
+  - [👥 4-Pillar Multi-Role Enterprise Ecosystem](#-4-pillar-multi-role-enterprise-ecosystem)
+    - [Role Domain Model](#role-domain-model)
+    - [Stakeholder Responsibilities Matrix](#stakeholder-responsibilities-matrix)
   - [🏛️ System Architecture](#️-system-architecture)
     - [Layered Architecture Diagram](#layered-architecture-diagram)
     - [Architectural Components Breakdown](#architectural-components-breakdown)
-  - [👥 Multi-Role Enterprise Ecosystem](#-multi-role-enterprise-ecosystem)
-    - [Role Domain Model](#role-domain-model)
-    - [Stakeholder Responsibilities Matrix](#stakeholder-responsibilities-matrix)
-  - [🔄 End-to-End Operational Workflows](#-end-to-end-operational-workflows)
-    - [Daily Lifecycle: From Subscription to Doorstep](#daily-lifecycle-from-subscription-to-doorstep)
-    - [Delivery State Machine](#delivery-state-machine)
   - [📂 Monorepo Structure](#-monorepo-structure)
     - [Workspaces Topology](#workspaces-topology)
   - [🚀 Quick Start Guide (\&lt; 5 Minutes)](#-quick-start-guide-5-minutes)
@@ -83,85 +105,84 @@
 
 ---
 
-## 🏛️ System Architecture
+## 🔄 5-Stage Operational Lifecycle Pipeline
 
-UrbanThali is architected as a **modular monorepo** with clean separation of concerns, strict TypeScript contracts, and cloud-native infrastructure readiness.
+<p align="center">
+  <img src="docs/assets/operational-pipeline.svg" alt="5-Stage Operational Lifecycle Pipeline" width="100%" />
+</p>
 
-### Layered Architecture Diagram
+### Daily Operations Flow
 
 ```mermaid
-flowchart TB
-    subgraph Clients[" 📱 Client Applications Layer "]
-        Mobile["📱 Mobile Application<br/><b>@urbanthali/mobile</b><br/><i>Cross-Platform (iOS & Android) via Expo / React Native</i>"]
-        Admin["💻 Operations & Kitchen Portal<br/><b>@urbanthali/admin</b><br/><i>Enterprise Operations Dashboard via React 18 + Vite</i>"]
-    end
+%%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#090D16', 'primaryColor': '#F59E0B', 'primaryTextColor': '#FFFFFF', 'primaryBorderColor': '#D97706', 'lineColor': '#00F0FF', 'secondaryColor': '#00F59B', 'tertiaryColor': '#8B5CF6' }}}%%
+sequenceDiagram
+    autonumber
+    actor Customer as 👤 Customer
+    participant Mobile as 📱 Customer Mobile App
+    participant API as 🚀 Central Express API
+    participant Batch as ⏰ BullMQ Scheduler
+    participant Kitchen as 🍳 Cloud Kitchen Hub
+    participant Rider as 🛵 Fleet Delivery Rider
+    actor Admin as 💻 Admin Ops Center
 
-    subgraph CoreBackend[" ⚡ API Gateway & Core Domain Services "]
-        API["🚀 UrbanThali REST API<br/><b>@urbanthali/api</b><br/><i>Node.js + Express + TypeScript</i>"]
-        Shared["📦 Domain Shared Contracts<br/><b>@urbanthali/shared</b><br/><i>Shared DTOs, Enums, Interfaces & Schemas</i>"]
-        
-        subgraph SubModules[" 🧩 Modular Business Services "]
-            AuthMod["🔐 Identity & RBAC"]
-            SubMod["📅 Subscription Engine"]
-            KitchenMod["🍳 Kitchen Batch Manifests"]
-            NavMod["🗺️ Waypoints & ETA"]
-            DelivMod["🛵 Fleet Dispatch & Tracking"]
-            PayMod["💳 Payment Processing"]
-            ProfMod["👥 Profile Management"]
-        end
-    end
+    Customer->>Mobile: Subscribes to 30-Day Lunch Plan (Jain / Medium Spice)
+    Mobile->>API: POST /payments/create-intent & /confirm
+    API-->>Customer: Subscription Confirmed (Plan ID: SUB-9021)
 
-    subgraph DataQueue[" 💾 Data Persistence & Asynchronous Queues "]
-        PG[("🐘 PostgreSQL<br/><i>Primary Relational Storage</i><br/>Profiles, Orders, Subscriptions")]
-        Redis[("⚡ Redis Cache<br/><i>Session State & Live Telemetry</i>")]
-        Queue["📬 BullMQ / AWS SQS<br/><i>Daily Manifest & Notification Workers</i>"]
-    end
+    Note over Batch,API: 06:00 AM — Automated Batch Generation
+    Batch->>API: Trigger generateDailyDeliveryTickets()
+    API->>Kitchen: Daily Prep Manifest (Veg: 120, Non-Veg: 85, Jain: 40, Keto: 15)
+    Kitchen->>Kitchen: Cook, inspect hygiene, seal in tamper-evident thali boxes
+    Kitchen->>API: Mark batch as "Packed & Staged at Hub"
 
-    subgraph ExternalServices[" 🌐 Cloud & Third-Party Gateways "]
-        Razorpay["💳 Razorpay / Stripe<br/><i>Subscriptions & Recurring Billing</i>"]
-        GMaps["🗺️ Google Maps Platform<br/><i>Route Directions & Geo-Sequencing</i>"]
-        FCM["🔔 Firebase FCM & SMS<br/><i>OTP Dispatch & Push Alerts</i>"]
-        AWS["☁️ AWS S3 & CloudFront<br/><i>KYC Docs & Food Media CDN</i>"]
-    end
+    Note over API,Admin: 11:15 AM — Dynamic Route Dispatch
+    Admin->>API: POST /navigation/route (Compute optimal route & ETA)
+    API->>API: POST /deliveries (Assign delivery to Rider with waypoints)
+    API->>Rider: Notification: 12 orders assigned for Baner-Hinjawadi route
+    
+    Rider->>API: PATCH /deliveries/:id/status ("picked_up")
+    Rider->>API: PATCH /deliveries/:id/status ("in_transit")
 
-    Mobile -->|HTTPS / REST API| API
-    Admin -->|HTTPS / REST API| API
-    API --- Shared
-    Shared -.->|Types| Mobile
-    Shared -.->|Types| Admin
-
-    API --> SubModules
-    AuthMod & SubMod & KitchenMod & DelivMod & ProfMod --> PG
-    AuthMod & DelivMod --> Redis
-    SubMod -->|Queue Daily Tickets| Queue
-    Queue --> KitchenMod & DelivMod
-
-    PayMod --> Razorpay
-    NavMod & DelivMod --> GMaps
-    AuthMod & DelivMod --> FCM
-    API --> AWS
+    Note over Customer,Mobile: Real-Time GPS Tracking
+    Customer->>Mobile: View live delivery map
+    Mobile->>API: GET /deliveries/:id/tracking
+    API-->>Mobile: Coordinates, status: "in_transit", ETA: 12 mins
+    
+    Note over Rider,Customer: Secure Handover Verification
+    Rider->>Customer: Arrives at customer doorstep
+    API->>Customer: POST /notifications/send-otp (Sends 4-digit code)
+    Customer->>Rider: Confirms code verbally
+    Rider->>API: POST /notifications/verify-otp + status: "delivered"
+    API-->>Admin: Real-time dashboard KPI updated: 99.4% On-Time Delivery
 ```
 
-### Architectural Components Breakdown
+### Delivery State Machine
 
-| Layer | Package / Service | Tech Stack | Responsibility |
-| :--- | :--- | :--- | :--- |
-| **Mobile App** | [`apps/mobile`](apps/mobile) | React Native, Expo 51, TypeScript | Customer subscription ordering, meal preference customization, live delivery tracking, and rider OTP handover. |
-| **Admin Web Portal** | [`apps/admin`](apps/admin) | React 18, Vite 5, Bootstrap, TypeScript | Mission control dashboard for admin registration, payment simulation, route mapping, fleet dispatch, and multi-role directory management. |
-| **Backend API** | [`services/api`](services/api) | Node.js 20+, Express 4, Zod, Helmet | Central REST API handling authentication, payments, geo-routing, delivery lifecycle states, OTP generation, and daily ticket generation. |
-| **Shared Contracts** | [`packages/shared`](packages/shared) | TypeScript (ES Modules) | Strict type definitions and interfaces for Profiles, Subscriptions, Meal Types, Roles, and Delivery Orders across all apps. |
-| **Database & Cache** | [`services/api/src/infrastructure`](services/api/src/infrastructure) | PostgreSQL 16 + Redis 7 | Relational persistence for accounts, subscriptions, and delivery logs; Redis for low-latency session caching and GPS coordinates. |
-| **Job Queue** | [`services/api/src/jobs`](services/api/src/jobs) | BullMQ / AWS SQS | Automated batch processing for generating morning and evening kitchen dispatch manifests. |
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#090D16', 'primaryColor': '#00F59B', 'primaryTextColor': '#FFFFFF', 'primaryBorderColor': '#059669', 'lineColor': '#38BDF8' }}}%%
+stateDiagram-v2
+    [*] --> assigned : Order Generated from Active Subscription
+    assigned --> picked_up : Rider collects sealed thali from Kitchen Hub
+    picked_up --> in_transit : Rider departs on navigation route
+    in_transit --> delivered : Customer verifies delivery via OTP / Handover
+    in_transit --> failed : Customer unreachable / address incorrect
+    assigned --> failed : Hub stockout or rider unavailable
+    delivered --> [*] : Order completed & delivery ledger updated
+    failed --> [*] : Support ticket auto-created & meal credited back
+```
 
 ---
 
-## 👥 Multi-Role Enterprise Ecosystem
+## 👥 4-Pillar Multi-Role Enterprise Ecosystem
 
-UrbanThali Foods utilizes a unified, role-based architecture supporting four distinct enterprise personas. Each persona has custom permissions, profiles, and operational views.
+<p align="center">
+  <img src="docs/assets/roles-cards.svg" alt="4-Pillar Multi-Role Enterprise Ecosystem Cards" width="100%" />
+</p>
 
 ### Role Domain Model
 
 ```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#090D16', 'primaryColor': '#38BDF8', 'primaryTextColor': '#FFFFFF', 'primaryBorderColor': '#0284C7', 'lineColor': '#F59E0B' }}}%%
 classDiagram
     direction TB
     class BaseProfile {
@@ -227,67 +248,76 @@ classDiagram
 
 ---
 
-## 🔄 End-to-End Operational Workflows
+## 🏛️ System Architecture
 
-### Daily Lifecycle: From Subscription to Doorstep
+UrbanThali is architected as a **modular monorepo** with clean separation of concerns, strict TypeScript contracts, and cloud-native infrastructure readiness.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    actor Customer as 👤 Customer
-    participant Mobile as 📱 Customer Mobile App
-    participant API as 🚀 Central Express API
-    participant Batch as ⏰ BullMQ Scheduler
-    participant Kitchen as 🍳 Cloud Kitchen Hub
-    participant Rider as 🛵 Fleet Delivery Rider
-    actor Admin as 💻 Admin Ops Center
-
-    Customer->>Mobile: Subscribes to 30-Day Lunch Plan (Jain / Medium Spice)
-    Mobile->>API: POST /payments/create-intent & /confirm
-    API-->>Customer: Subscription Confirmed (Plan ID: SUB-9021)
-
-    Note over Batch,API: 06:00 AM — Automated Batch Generation
-    Batch->>API: Trigger generateDailyDeliveryTickets()
-    API->>Kitchen: Daily Prep Manifest (Veg: 120, Non-Veg: 85, Jain: 40, Keto: 15)
-    Kitchen->>Kitchen: Cook, inspect hygiene, seal in tamper-evident thali boxes
-    Kitchen->>API: Mark batch as "Packed & Staged at Hub"
-
-    Note over API,Admin: 11:15 AM — Dynamic Route Dispatch
-    Admin->>API: POST /navigation/route (Compute optimal route & ETA)
-    API->>API: POST /deliveries (Assign delivery to Rider with waypoints)
-    API->>Rider: Notification: 12 orders assigned for Baner-Hinjawadi route
-    
-    Rider->>API: PATCH /deliveries/:id/status ("picked_up")
-    Rider->>API: PATCH /deliveries/:id/status ("in_transit")
-
-    Note over Customer,Mobile: Real-Time GPS Tracking
-    Customer->>Mobile: View live delivery map
-    Mobile->>API: GET /deliveries/:id/tracking
-    API-->>Mobile: Coordinates, status: "in_transit", ETA: 12 mins
-    
-    Note over Rider,Customer: Secure Handover Verification
-    Rider->>Customer: Arrives at customer doorstep
-    API->>Customer: POST /notifications/send-otp (Sends 4-digit code)
-    Customer->>Rider: Confirms code verbally
-    Rider->>API: POST /notifications/verify-otp + status: "delivered"
-    API-->>Admin: Real-time dashboard KPI updated: 99.4% On-Time Delivery
-```
-
-### Delivery State Machine
-
-Every delivery follows a finite state machine ensuring auditability and traceability:
+### Layered Architecture Diagram
 
 ```mermaid
-stateDiagram-v2
-    [*] --> assigned : Order Generated from Active Subscription
-    assigned --> picked_up : Rider collects sealed thali from Kitchen Hub
-    picked_up --> in_transit : Rider departs on navigation route
-    in_transit --> delivered : Customer verifies delivery via OTP / Handover
-    in_transit --> failed : Customer unreachable / address incorrect
-    assigned --> failed : Hub stockout or rider unavailable
-    delivered --> [*] : Order completed & delivery ledger updated
-    failed --> [*] : Support ticket auto-created & meal credited back
+%%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#090D16', 'primaryColor': '#F59E0B', 'primaryTextColor': '#FFFFFF', 'primaryBorderColor': '#D97706', 'lineColor': '#38BDF8', 'secondaryColor': '#00F59B', 'tertiaryColor': '#A855F7' }}}%%
+flowchart TB
+    subgraph Clients[" 📱 Client Applications Layer "]
+        Mobile["📱 Mobile Application<br/><b>@urbanthali/mobile</b><br/><i>Cross-Platform (iOS & Android) via Expo / React Native</i>"]
+        Admin["💻 Operations & Kitchen Portal<br/><b>@urbanthali/admin</b><br/><i>Enterprise Operations Dashboard via React 18 + Vite</i>"]
+    end
+
+    subgraph CoreBackend[" ⚡ API Gateway & Core Domain Services "]
+        API["🚀 UrbanThali REST API<br/><b>@urbanthali/api</b><br/><i>Node.js + Express + TypeScript</i>"]
+        Shared["📦 Domain Shared Contracts<br/><b>@urbanthali/shared</b><br/><i>Shared DTOs, Enums, Interfaces & Schemas</i>"]
+        
+        subgraph SubModules[" 🧩 Modular Business Services "]
+            AuthMod["🔐 Identity & RBAC"]
+            SubMod["📅 Subscription Engine"]
+            KitchenMod["🍳 Kitchen Batch Manifests"]
+            NavMod["🗺️ Waypoints & ETA"]
+            DelivMod["🛵 Fleet Dispatch & Tracking"]
+            PayMod["💳 Payment Processing"]
+            ProfMod["👥 Profile Management"]
+        end
+    end
+
+    subgraph DataQueue[" 💾 Data Persistence & Asynchronous Queues "]
+        PG[("🐘 PostgreSQL<br/><i>Primary Relational Storage</i><br/>Profiles, Orders, Subscriptions")]
+        Redis[("⚡ Redis Cache<br/><i>Session State & Live Telemetry</i>")]
+        Queue["📬 BullMQ / AWS SQS<br/><i>Daily Manifest & Notification Workers</i>"]
+    end
+
+    subgraph ExternalServices[" 🌐 Cloud & Third-Party Gateways "]
+        Razorpay["💳 Razorpay / Stripe<br/><i>Subscriptions & Recurring Billing</i>"]
+        GMaps["🗺️ Google Maps Platform<br/><i>Route Directions & Geo-Sequencing</i>"]
+        FCM["🔔 Firebase FCM & SMS<br/><i>OTP Dispatch & Push Alerts</i>"]
+        AWS["☁️ AWS S3 & CloudFront<br/><i>KYC Docs & Food Media CDN</i>"]
+    end
+
+    Mobile -->|HTTPS / REST API| API
+    Admin -->|HTTPS / REST API| API
+    API --- Shared
+    Shared -.->|Types| Mobile
+    Shared -.->|Types| Admin
+
+    API --> SubModules
+    AuthMod & SubMod & KitchenMod & DelivMod & ProfMod --> PG
+    AuthMod & DelivMod --> Redis
+    SubMod -->|Queue Daily Tickets| Queue
+    Queue --> KitchenMod & DelivMod
+
+    PayMod --> Razorpay
+    NavMod & DelivMod --> GMaps
+    AuthMod & DelivMod --> FCM
+    API --> AWS
 ```
+
+### Architectural Components Breakdown
+
+| Layer | Package / Service | Tech Stack | Responsibility |
+| :--- | :--- | :--- | :--- |
+| **Mobile App** | [`apps/mobile`](apps/mobile) | React Native, Expo 51, TypeScript | Customer subscription ordering, meal preference customization, live delivery tracking, and rider OTP handover. |
+| **Admin Web Portal** | [`apps/admin`](apps/admin) | React 18, Vite 5, Bootstrap, TypeScript | Mission control dashboard for admin registration, payment simulation, route mapping, fleet dispatch, and multi-role directory management. |
+| **Backend API** | [`services/api`](services/api) | Node.js 20+, Express 4, Zod, Helmet | Central REST API handling authentication, payments, geo-routing, delivery lifecycle states, OTP generation, and daily ticket generation. |
+| **Shared Contracts** | [`packages/shared`](packages/shared) | TypeScript (ES Modules) | Strict type definitions and interfaces for Profiles, Subscriptions, Meal Types, Roles, and Delivery Orders across all apps. |
+| **Database & Cache** | [`services/api/src/infrastructure`](services/api/src/infrastructure) | PostgreSQL 16 + Redis 7 | Relational persistence for accounts, subscriptions, and delivery logs; Redis for low-latency session caching and GPS coordinates. |
+| **Job Queue** | [`services/api/src/jobs`](services/api/src/jobs) | BullMQ / AWS SQS | Automated batch processing for generating morning and evening kitchen dispatch manifests. |
 
 ---
 
@@ -336,7 +366,11 @@ UrbanThali-Foods/
 │       │   └── types.ts               # Domain interfaces (UserProfile, Subscription, MealType, Address)
 │       └── package.json               # Shared package configuration
 ├── 📁 docs/                           # Architectural and operational documentation
-│   ├── assets/                        # SVG graphical banners and architectural diagrams
+│   ├── assets/                        # SVG graphical banners, live telemetry & pipeline graphics
+│   │   ├── urbanthali-banner.svg      # Main hero header with animated live radar beacons
+│   │   ├── live-telemetry.svg         # Animated live operations dashboard & health matrix
+│   │   ├── operational-pipeline.svg   # 5-stage graphical operational workflow pipeline
+│   │   └── roles-cards.svg            # 4-pillar multi-role ecosystem card grid
 │   ├── architecture.md                # System design & security baseline
 │   ├── roadmap.md                     # Engineering delivery milestones
 │   └── stack-coverage.md              # Technical requirements verification matrix
@@ -348,6 +382,7 @@ UrbanThali-Foods/
 ### Workspaces Topology
 
 ```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#090D16', 'primaryColor': '#38BDF8', 'primaryTextColor': '#FFFFFF', 'primaryBorderColor': '#0284C7', 'lineColor': '#00F59B' }}}%%
 graph LR
     Shared["📦 packages/shared<br/><i>Single Source of Truth</i>"]
     API["🚀 services/api<br/><i>Backend REST Engine</i>"]
@@ -834,6 +869,7 @@ Mock Payment Intent:
 ### Production AWS Architecture
 
 ```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#090D16', 'primaryColor': '#F59E0B', 'primaryTextColor': '#FFFFFF', 'primaryBorderColor': '#D97706', 'lineColor': '#00F0FF', 'secondaryColor': '#00F59B', 'tertiaryColor': '#A855F7' }}}%%
 flowchart TD
     subgraph Users[" 🌍 Client Traffic "]
         WebUsers["💻 Desktop / Admin Users"]
@@ -897,6 +933,7 @@ flowchart TD
 ## 🗺️ Product Development Roadmap
 
 ```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#090D16' }}}%%
 gantt
     title UrbanThali Foods Engineering Roadmap
     dateFormat  YYYY-MM-DD
